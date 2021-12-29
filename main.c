@@ -49,7 +49,10 @@ void tabulate_fun()
     printf("|%9s|%9s|\n", "X", "F(x)");
     for (double i = A; i <= B; i += r)
     {
-        printf("|%+8lf|%+8lf|\n", i, fun(i, eps));
+        if(((i > 0) ? i*100 : i*-100) < 1)
+            printf("|%+8lf|%8s|\n", i, "+inf");
+        else
+            printf("|%+8lf|%+8lf|\n", i, fun(i, eps));
     }
 }
 
